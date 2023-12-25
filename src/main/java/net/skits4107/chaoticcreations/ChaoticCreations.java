@@ -1,6 +1,7 @@
 package net.skits4107.chaoticcreations;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -11,6 +12,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.skits4107.chaoticcreations.block.ModBlocks;
+import net.skits4107.chaoticcreations.item.ModCreativeModeTabs;
+import net.skits4107.chaoticcreations.item.ModItems;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -23,6 +27,9 @@ public class ChaoticCreations {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModCreativeModeTabs.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -34,7 +41,10 @@ public class ChaoticCreations {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        /* example of how to add item to vanilla tab
+        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS){
+            event.accept(ModItems.ITEM); // same for mod blocks
+        } */
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
