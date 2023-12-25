@@ -21,6 +21,7 @@ public class ModCreativeModeTabs {
                         /* put items here to add to modded creative mode tab
                             pOutput.accept(ModItems.ITEM.get()); //example
                         */
+                        pOutput.accept(ModItems.CHAOTIC_WAND.get());
 
                     })
                     .build());

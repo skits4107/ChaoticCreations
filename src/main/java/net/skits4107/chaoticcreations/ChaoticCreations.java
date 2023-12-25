@@ -41,10 +41,10 @@ public class ChaoticCreations {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        /* example of how to add item to vanilla tab
-        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS){
-            event.accept(ModItems.ITEM); // same for mod blocks
-        } */
+        // example of how to add item to vanilla tab
+        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES){
+            event.accept(ModItems.CHAOTIC_WAND); // same for mod blocks
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
