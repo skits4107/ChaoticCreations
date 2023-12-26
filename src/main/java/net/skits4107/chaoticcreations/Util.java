@@ -21,7 +21,6 @@ public class Util {
         }
     }
     public static void randomizeBlock(BlockPos pos, Level level){
-        //List<Block> blocks = new ArrayList<>();
         if (blocks.isEmpty()){
             return;
         }
