@@ -22,6 +22,7 @@ public class ModCreativeModeTabs {
                             pOutput.accept(ModItems.ITEM.get()); //example
                         */
                         pOutput.accept(ModItems.CHAOTIC_WAND.get());
+                        pOutput.accept(ModItems.FALLING_STICK.get());
 
                     })
                     .build());

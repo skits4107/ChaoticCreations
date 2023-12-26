@@ -44,6 +44,7 @@ public class ChaoticCreations {
         // example of how to add item to vanilla tab
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES){
             event.accept(ModItems.CHAOTIC_WAND); // same for mod blocks
+            event.accept(ModItems.FALLING_STICK);
         }
     }
 
