@@ -5,7 +5,7 @@ it will probably be an unbalanced mess but that is part of the fun right?
 
 # currently in mod
 
-- nothing
+- chaotic wand. it randomizes the blocks it is clicked on. it can be used 20 times.
 
 # known bugs
 
