@@ -1,20 +1,16 @@
 package net.skits4107.chaoticcreations.item.custom;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.item.FallingBlockEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class FallingStick extends Item {
-    public FallingStick(Properties pProperties) {
+public class FeatherWand extends Item {
+    public FeatherWand(Properties pProperties) {
         super(pProperties);
     }
 
@@ -27,13 +23,13 @@ public class FallingStick extends Item {
         if (!level.isClientSide){
             level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
             FallingBlockEntity.fall(level, pos, state);
-            pContext.getItemInHand().hurtAndBreak(1, pContext.getPlayer(), (p) -> {
-                p.broadcastBreakEvent(pContext.getHand());
-            });
             return InteractionResult.SUCCESS;
         }
         return InteractionResult.FAIL;
     }
+
+    /*
+    keeping just in case i need to use this code for simular functionality for other features
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
@@ -45,6 +41,7 @@ public class FallingStick extends Item {
         }
         return super.use(level, player, usedHand);
     }
+
 
     public void findBlocksAroundPlayer(Player player, Level level, int radius) {
         BlockPos playerPos = player.blockPosition();
@@ -63,10 +60,7 @@ public class FallingStick extends Item {
                 }
             }
         }
-    }
+    } */
 
-    @Override
-    public boolean isDamageable(ItemStack stack) {
-        return true;
-    }
+
 }
