@@ -67,6 +67,7 @@ public class FeatherWand extends Item {
                         return InteractionResult.SUCCESS;
                     }
                     //else:
+                    //i thought i could do this as a method in my entity class. it did not work and do not know why so i have to do this for now.
                     HeavyItemEntity heavyItem = (HeavyItemEntity) entity;
                     ItemStack itemStack = heavyItem.getItem();
                     ItemEntity drop = new ItemEntity(level, entity.getX(), entity.getY(),entity.getZ(), itemStack);
@@ -99,10 +100,9 @@ public class FeatherWand extends Item {
         //there is probably a better way but i couldnt find any methods or objects that allowed me
         //to do it in a simplier way. this is what chatgpt came up with and seemed good enough to me
         if (!level.isClientSide) {
-            // Calculate the ray trace result
-
             double reachDistance = 5.0; // Example reach distance
             AABB area = player.getBoundingBox().inflate(reachDistance);
+            //get all the dropped items near player
             List<Entity> entities = level.getEntities(player, area, e -> (e instanceof ItemEntity || e instanceof HeavyItemEntity));
 
             //calculate the direction the player is looking and how are far it should look.
@@ -117,7 +117,7 @@ public class FeatherWand extends Item {
                 Optional<Vec3> hitVec = entityBoundingBox.clip(playerEyePosition, reachVector);
                 if (hitVec.isPresent()) {
                     // Entity is within the line of sight, perform your logic
-                    if (entity instanceof ItemEntity) {
+                    if (entity instanceof ItemEntity){
                         HeavyItemEntity heavyItem = HeavyItemEntity.makeHeavy((ItemEntity) entity);
                         heavyItem.absMoveTo(entity.getX(), entity.getY(), entity.getZ(), entity.getYRot(), entity.getXRot());
                         entity.remove(Entity.RemovalReason.DISCARDED);
@@ -125,12 +125,14 @@ public class FeatherWand extends Item {
                         break;
                     }
                     //else:
+                    //i thought i could do this as a method in my entity class. it did not work and do not know why so i have to do this for now.
                     HeavyItemEntity heavyItem = (HeavyItemEntity) entity;
                     ItemStack itemStack = heavyItem.getItem();
-                    ItemEntity drop = new ItemEntity(level, entity.getX(), entity.getY(), entity.getZ(), itemStack);
+                    ItemEntity drop = new ItemEntity(level, entity.getX(), entity.getY(),entity.getZ(), itemStack);
                     entity.remove(Entity.RemovalReason.KILLED);
                     level.addFreshEntity(drop);
                     break;
+
                 }
             }
         }
