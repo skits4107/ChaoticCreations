@@ -23,6 +23,8 @@ public class ModCreativeModeTabs {
                         */
                         pOutput.accept(ModItems.CHAOTIC_WAND.get());
                         pOutput.accept(ModItems.FEATHER_WAND.get());
+                        pOutput.accept(ModItems.WIZARD_STAFF.get());
+                        pOutput.accept(ModItems.FIRE_BLAST_CRYSTAL.get());
 
                     })
                     .build());

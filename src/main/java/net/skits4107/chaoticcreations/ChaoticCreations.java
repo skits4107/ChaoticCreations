@@ -2,6 +2,7 @@ package net.skits4107.chaoticcreations;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.FallingBlockRenderer;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,6 +16,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.skits4107.chaoticcreations.block.ModBlocks;
 import net.skits4107.chaoticcreations.entity.ModEntities;
+import net.skits4107.chaoticcreations.entity.client.CustomFallingBlockEntityRenderer;
 import net.skits4107.chaoticcreations.entity.client.HeavyItemEntityRenderer;
 import net.skits4107.chaoticcreations.item.ModCreativeModeTabs;
 import net.skits4107.chaoticcreations.item.ModItems;
@@ -64,6 +66,7 @@ public class ChaoticCreations {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntities.HEAVY_ITEM_ENTITY.get(), HeavyItemEntityRenderer::new);
+            EntityRenderers.register(ModEntities.FALLING.get(), CustomFallingBlockEntityRenderer::new);
         }
     }
 }
