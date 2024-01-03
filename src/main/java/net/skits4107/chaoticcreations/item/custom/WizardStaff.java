@@ -14,16 +14,19 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.internal.TextComponentMessageFormatHandler;
@@ -129,6 +132,14 @@ public class WizardStaff extends Item {
             //inventory tick handles the wall building
         }
         else if(spell.equals("lightning")){
+            Vec3 looking = pPlayer.getViewVector(1.0F).multiply(7,7,7);
+
+            BlockHitResult result = pLevel.clip(new ClipContext(pPlayer.getEyePosition(), pPlayer.getEyePosition().add(looking), ClipContext.Block.COLLIDER, ClipContext.Fluid.ANY, pPlayer));
+            BlockPos pos = result.getBlockPos();
+            LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, pLevel);
+
+            bolt.setPos(new Vec3(pos.getX(), pos.getY(), pos.getZ()));
+            pLevel.addFreshEntity(bolt);
 
         }
         else if (spell.equals("levitate")){
