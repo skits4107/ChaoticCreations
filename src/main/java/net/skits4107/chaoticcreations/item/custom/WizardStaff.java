@@ -2,6 +2,7 @@ package net.skits4107.chaoticcreations.item.custom;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentContents;
@@ -35,7 +36,7 @@ import java.util.List;
 
 public class WizardStaff extends Item {
 
-
+    private int tick = 0;
     public WizardStaff(Properties pProperties) {
         super(pProperties);
     }
@@ -53,6 +54,15 @@ public class WizardStaff extends Item {
                 switch (spell){
                     case "fire_blast":
                         color = ChatFormatting.RED;
+                        break;
+                    case "defense":
+                        color = ChatFormatting.DARK_GRAY;
+                        break;
+                    case "lightning":
+                        color = ChatFormatting.BLUE;
+                        break;
+                    case "levitate":
+                        color = ChatFormatting.YELLOW;
                         break;
                     default:
                         color =  ChatFormatting.WHITE;
@@ -98,6 +108,32 @@ public class WizardStaff extends Item {
                 p.broadcastBreakEvent(InteractionHand.MAIN_HAND);
             });
         }
+        else if (spell.equals("defense")){
+            Direction dir = pPlayer.getDirection();
+            BlockPos pos = pPlayer.blockPosition();
+            stack.getTag().putBoolean("building_wall",true);
+            stack.getTag().putIntArray("building_block", new int[]{0,0});
+            stack.getTag().putIntArray("wall_player_pos", new int[]{pos.getX(), pos.getY(), pos.getZ()});
+            if (dir.equals(Direction.EAST)){ //positive X
+                stack.getTag().putString("direction", "east");
+            }
+            else if (dir.equals(Direction.WEST)){
+                stack.getTag().putString("direction", "west");
+            }
+            else if (dir.equals(Direction.NORTH)){ //positive Z
+                stack.getTag().putString("direction", "north");
+            }
+            else if (dir.equals(Direction.SOUTH)){
+                stack.getTag().putString("direction", "south");
+            }
+            //inventory tick handles the wall building
+        }
+        else if(spell.equals("lightning")){
+
+        }
+        else if (spell.equals("levitate")){
+
+        }
     }
 
     @Override
@@ -113,6 +149,15 @@ public class WizardStaff extends Item {
                     case "fire_blast":
                         color = ChatFormatting.RED;
                         break;
+                    case "defense":
+                        color = ChatFormatting.DARK_GRAY;
+                        break;
+                    case "lightning":
+                        color = ChatFormatting.BLUE;
+                        break;
+                    case "levitate":
+                        color = ChatFormatting.YELLOW;
+                        break;
                     default:
                         color =  ChatFormatting.WHITE;
                 }
@@ -123,5 +168,64 @@ public class WizardStaff extends Item {
         return super.getHighlightTip(item, displayName);
     }
 
+    @Override
+    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+        if (pLevel.isClientSide){return;}
+        tick++;
+        if(tick % 1000 == 0){
+            tick=0; //prevents tick from becoming super large.
+        }
 
+        if(tick % 3 != 0){
+            return; //only every 3 ticks will it try and place a block
+        }
+
+        //if the item is the one building the wall
+        if (pStack.hasTag()) {
+            CompoundTag tag = pStack.getTag();
+            if (tag.contains("building_wall") && tag.contains("building_block") && tag.contains("wall_player_pos") && tag.contains("direction")) {
+                //if you are building the wall
+                if (tag.getBoolean("building_wall")) {
+                    //get relavent info from nbt
+                    Direction dir = Direction.byName(tag.getString("direction"));
+                    int[] pp = tag.getIntArray("wall_player_pos");
+                    BlockPos playerPos = new BlockPos(pp[0], pp[1], pp[2]);
+                    int[] current_block = tag.getIntArray("building_block");
+
+                    //calculate where to drop based on direction and current block
+                    if (dir.equals(Direction.NORTH)) { //negative Z
+                        BlockPos current_pos = playerPos.offset(-3 + current_block[0], 5, -3);
+                        Entity block = FallingBlockEntity.fall(pLevel, current_pos, Blocks.STONE.defaultBlockState());
+                    }
+                    else if (dir.equals(Direction.SOUTH)) { //positive Z
+                        BlockPos current_pos = playerPos.offset(3 - current_block[0], 5, 3);
+                        Entity block = FallingBlockEntity.fall(pLevel, current_pos, Blocks.STONE.defaultBlockState());
+                    }
+                    else if (dir.equals(Direction.WEST)) { // negative X
+                        BlockPos current_pos = playerPos.offset(-3, 5, 3 - current_block[0]);
+                        Entity block = FallingBlockEntity.fall(pLevel, current_pos, Blocks.STONE.defaultBlockState());
+                    }
+                    else if (dir.equals(Direction.EAST)) { //positive X
+                        BlockPos current_pos = playerPos.offset(3, 5, -3 + current_block[0]);
+                        Entity block = FallingBlockEntity.fall(pLevel, current_pos, Blocks.STONE.defaultBlockState());
+                    }
+
+
+                    //if it is the last block stop building
+                    if (current_block[0] == 6 && current_block[1] == 3) {
+                        tag.putBoolean("building_wall", false);
+                    }
+                    else if (current_block[0] == 6){ //if at end of row go to next
+                        current_block[1] +=1;
+                    }
+                    //increase the current block column
+                    current_block[0] = (current_block[0]+1) % 7;
+                    //update the current row block.
+                    tag.putIntArray("building_block", current_block);
+                }
+            }
+        }
+
+        super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
+    }
 }

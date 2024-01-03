@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures":{
-    "layer0": "chaoticcreations:item/red_crystal"
+    "layer0": "chaoticcreations:item/gray_crystal"
   }
 }

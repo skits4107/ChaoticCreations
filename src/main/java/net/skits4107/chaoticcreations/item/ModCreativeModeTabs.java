@@ -25,6 +25,9 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.FEATHER_WAND.get());
                         pOutput.accept(ModItems.WIZARD_STAFF.get());
                         pOutput.accept(ModItems.FIRE_BLAST_CRYSTAL.get());
+                        pOutput.accept(ModItems.DEFENSE_CRYSTAL.get());
+                        pOutput.accept(ModItems.LEVITATE_CRYSTAL.get());
+                        pOutput.accept(ModItems.LIGHTNING.get());
 
                     })
                     .build());

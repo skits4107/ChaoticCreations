@@ -3,5 +3,8 @@
   "item.chaoticcreations.chaotic_wand": "Wand of Chaos",
   "item.chaoticcreations.feather_wand": "Feather Wand",
   "item.chaoticcreations.wizard_staff": "Wizard Staff",
-  "item.chaoticcreations.fire_blast_crystal": "Fire Blast Spell Crystal"
+  "item.chaoticcreations.fire_blast_crystal": "Fire Blast Spell Crystal",
+  "item.chaoticcreations.defense_crystal": "Defense Spell Crystal",
+  "item.chaoticcreations.lightning_crystal": "Lightning Spell Crystal",
+  "item.chaoticcreations.levitate_crystal": "Levitation Spell Crystal"
 }

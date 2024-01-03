@@ -28,28 +28,37 @@ public class SpellCrystal extends Item {
 
         Inventory inventory = pPlayer.getInventory();
         //if there is wizard staff
-        if (inventory.contains(new ItemStack(ModItems.WIZARD_STAFF.get()))){
-            //get the wizardstaff itemstack
-            int index = inventory.findSlotMatchingItem(new ItemStack(ModItems.WIZARD_STAFF.get()));
-            ItemStack staff = inventory.getItem(index);
-            //change wizard staff spell
-            if (staff.hasTag()){
-                CompoundTag tag = staff.getTag();
-                tag.putString("spell", spell);
+        for (ItemStack item : inventory.items) {
+            if (item.getItem() == ModItems.WIZARD_STAFF.get()) {
+                //change wizard staff spell
+                if (item.hasTag()){
+                    CompoundTag tag = item.getTag();
+                    tag.putString("spell", spell);
+                }
+                else{
+                    CompoundTag tag = new CompoundTag();
+                    tag.putString("spell", spell);
+                }
+                ChatFormatting color;
+                switch (spell){
+                    case "fire_blast":
+                        color = ChatFormatting.RED;
+                        break;
+                    case "defense":
+                        color = ChatFormatting.DARK_GRAY;
+                        break;
+                    case "lightning":
+                        color = ChatFormatting.BLUE;
+                        break;
+                    case "levitate":
+                        color = ChatFormatting.YELLOW;
+                        break;
+                    default:
+                        color =  ChatFormatting.WHITE;
+                }
+                pPlayer.displayClientMessage(Component.literal("staff has: "+color+this.spell), true);
+                break;
             }
-            else{
-                CompoundTag tag = new CompoundTag();
-                tag.putString("spell", spell);
-            }
-            ChatFormatting color;
-            switch (spell){
-                case "fire_blast":
-                    color = ChatFormatting.RED;
-                    break;
-                default:
-                    color =  ChatFormatting.WHITE;
-            }
-            pPlayer.displayClientMessage(Component.literal("staff has: "+color+this.spell), true);
         }
         return super.use(pLevel, pPlayer, pUsedHand);
     }

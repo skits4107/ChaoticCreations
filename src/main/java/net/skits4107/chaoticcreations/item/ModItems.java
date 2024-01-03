@@ -24,6 +24,11 @@ public class ModItems {
 
     public static final RegistryObject<Item> FIRE_BLAST_CRYSTAL = ITEMS.register("fire_blast_crystal", ()->new SpellCrystal(new Item.Properties().stacksTo(1), "fire_blast"));
 
+    public static final RegistryObject<Item> DEFENSE_CRYSTAL = ITEMS.register("defense_crystal", ()->new SpellCrystal(new Item.Properties().stacksTo(1), "defense"));
+
+    public static final RegistryObject<Item> LIGHTNING = ITEMS.register("lightning_crystal", ()->new SpellCrystal(new Item.Properties().stacksTo(1), "lightning"));
+
+    public static final RegistryObject<Item> LEVITATE_CRYSTAL = ITEMS.register("levitate_crystal", ()->new SpellCrystal(new Item.Properties().stacksTo(1), "levitate"));
 
     public static void register(IEventBus bus){
         ITEMS.register(bus);
