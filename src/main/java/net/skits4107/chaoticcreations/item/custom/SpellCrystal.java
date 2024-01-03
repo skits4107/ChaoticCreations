@@ -1,6 +1,8 @@
 package net.skits4107.chaoticcreations.item.custom;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Inventory;
@@ -39,6 +41,15 @@ public class SpellCrystal extends Item {
                 CompoundTag tag = new CompoundTag();
                 tag.putString("spell", spell);
             }
+            ChatFormatting color;
+            switch (spell){
+                case "fire_blast":
+                    color = ChatFormatting.RED;
+                    break;
+                default:
+                    color =  ChatFormatting.WHITE;
+            }
+            pPlayer.displayClientMessage(Component.literal("staff has: "+color+this.spell), true);
         }
         return super.use(pLevel, pPlayer, pUsedHand);
     }
