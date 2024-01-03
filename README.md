@@ -7,6 +7,8 @@ it will probably be an unbalanced mess but that is part of the fun right?
 
 - chaotic wand. it randomizes the blocks it is clicked on. it can be used 20 times.
 - Feather Wand. from the tv show bluey this is a feather that makes blocks fall when clicked on. in the future this will also add slowness and possibly reduce jumping.
+- Wizard staff can cast various spells. you use spell crystals to change spells
+- spell crystals. used to change wizard staff spells. current spell crystals are: fire blast
 
 # known bugs
 
