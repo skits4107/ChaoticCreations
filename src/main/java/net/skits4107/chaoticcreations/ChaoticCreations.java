@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.skits4107.chaoticcreations.block.ModBlocks;
+import net.skits4107.chaoticcreations.block.entity.ModBlockEntities;
 import net.skits4107.chaoticcreations.entity.ModEntities;
 import net.skits4107.chaoticcreations.entity.client.CustomFallingBlockEntityRenderer;
 import net.skits4107.chaoticcreations.entity.client.HeavyItemEntityRenderer;
@@ -36,6 +37,7 @@ public class ChaoticCreations {
         ModBlocks.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
         ModEntities.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);

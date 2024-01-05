@@ -9,6 +9,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.skits4107.chaoticcreations.ChaoticCreations;
+import net.skits4107.chaoticcreations.block.ModBlocks;
 
 public class ModCreativeModeTabs {
 
@@ -28,6 +29,8 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.DEFENSE_CRYSTAL.get());
                         pOutput.accept(ModItems.LEVITATE_CRYSTAL.get());
                         pOutput.accept(ModItems.LIGHTNING.get());
+
+                        pOutput.accept(ModBlocks.LUNAR_BLOCK.get());
 
                     })
                     .build());
