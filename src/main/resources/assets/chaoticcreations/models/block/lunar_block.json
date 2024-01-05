@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "chaoticcreations:block/lunar_block_texture"
+    "all": "chaoticcreations:block/lunar_block"
   }
 }
