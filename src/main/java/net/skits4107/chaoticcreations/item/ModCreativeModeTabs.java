@@ -2,6 +2,7 @@ package net.skits4107.chaoticcreations.item;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.animal.Parrot;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -31,6 +32,10 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.LIGHTNING.get());
 
                         pOutput.accept(ModBlocks.LUNAR_BLOCK.get());
+                        pOutput.accept(ModBlocks.LUNAR_BLOCK_BRICK.get());
+                        pOutput.accept(ModBlocks.LUNAR_BLOCK_CARVED.get());
+                        pOutput.accept(ModBlocks.LUNAR_BLOCK_COBBLE.get());
+                        pOutput.accept(ModBlocks.LUNAR_BLOCK_CRACKED.get());
 
                     })
                     .build());

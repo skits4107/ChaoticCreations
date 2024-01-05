@@ -21,6 +21,14 @@ public class ModBlocks {
     /* new blocks here*/
     public static RegistryObject<Block> LUNAR_BLOCK = registerBlock("lunar_block", ()-> new LunarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
+    public static RegistryObject<Block> LUNAR_BLOCK_BRICK = registerBlock("lunar_block_brick", ()-> new LunarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+
+    public static RegistryObject<Block> LUNAR_BLOCK_CARVED = registerBlock("lunar_block_carved", ()-> new LunarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+
+    public static RegistryObject<Block> LUNAR_BLOCK_COBBLE = registerBlock("lunar_block_cobble", ()-> new LunarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+
+    public static RegistryObject<Block> LUNAR_BLOCK_CRACKED = registerBlock("lunar_block_cracked", ()-> new LunarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

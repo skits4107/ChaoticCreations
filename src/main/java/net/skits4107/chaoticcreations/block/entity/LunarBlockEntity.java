@@ -16,6 +16,7 @@ public class LunarBlockEntity extends BlockEntity {
     }
 
 
+
     public void tick(Level pLevel, BlockPos pPos, BlockState pState, LunarBlockEntity pBlockEntity) {
         if(pLevel.isDay() != pState.getValue(LunarBlock.DAYTIME) && !pLevel.isClientSide){
             pLevel.setBlock(pPos,  pState.setValue(LunarBlock.DAYTIME, pLevel.isDay()), 3);

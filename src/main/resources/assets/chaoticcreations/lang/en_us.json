@@ -7,5 +7,9 @@
   "item.chaoticcreations.defense_crystal": "Defense Spell Crystal",
   "item.chaoticcreations.lightning_crystal": "Lightning Spell Crystal",
   "item.chaoticcreations.levitate_crystal": "Levitation Spell Crystal",
-  "block.chaoticcreations.lunar_block": "Lunar Block"
+  "block.chaoticcreations.lunar_block": "Lunar Block",
+  "block.chaoticcreations.lunar_block_brick": "Lunar Block Brick",
+  "block.chaoticcreations.lunar_block_carved": "Lunar Block Carved",
+  "block.chaoticcreations.lunar_block_cobble": "Cobble Lunar Block",
+  "block.chaoticcreations.lunar_block_cracked": "Lunar Block Cracked"
 }
