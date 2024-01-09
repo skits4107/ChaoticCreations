@@ -3,10 +3,6 @@ package net.skits4107.chaoticcreations.block.custom;
 
 import net.minecraft.core.BlockPos;
 
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -21,14 +17,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import net.skits4107.chaoticcreations.block.entity.LunarBlockEntity;
+import net.skits4107.chaoticcreations.block.entity.VanishingBlockEntity;
 import net.skits4107.chaoticcreations.block.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
@@ -40,6 +34,7 @@ public class LunarBlock extends BaseEntityBlock {
 
 
     public static final Property<Boolean> DAYTIME = BooleanProperty.create("daytime");
+
 
     public LunarBlock(Properties pProperties) {
         super(pProperties);
@@ -54,7 +49,7 @@ public class LunarBlock extends BaseEntityBlock {
 
     @Override
     public RenderShape getRenderShape(BlockState pState) {
-        if(pState.getValue(DAYTIME)){
+        if(isActive(pState)){
             return RenderShape.INVISIBLE;
         }
         return RenderShape.MODEL;
@@ -62,7 +57,7 @@ public class LunarBlock extends BaseEntityBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if(pState.getValue(DAYTIME)){
+        if(isActive(pState)){
             return Shapes.empty();
         }
         return super.getShape(pState, pLevel, pPos, pContext);
@@ -70,7 +65,7 @@ public class LunarBlock extends BaseEntityBlock {
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if(pState.getValue(DAYTIME)){
+        if(isActive(pState)){
             return Shapes.empty();
         }
         return super.getCollisionShape(pState, pLevel, pPos, pContext);
@@ -79,7 +74,7 @@ public class LunarBlock extends BaseEntityBlock {
 
     @Override
     public VoxelShape getInteractionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-        if(pState.getValue(DAYTIME)){
+        if(isActive(pState)){
             return Shapes.empty();
         }
         return super.getInteractionShape(pState, pLevel, pPos);
@@ -111,8 +106,15 @@ public class LunarBlock extends BaseEntityBlock {
 
     @Override
     public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-        return pState.getValue(DAYTIME);
+        return isActive(pState);
     }
+    public boolean isActive(BlockState state){
+        return state.getValue(DAYTIME);
+    }
+
+
+
+
 
 
 }

@@ -15,20 +15,20 @@ public class ModBlockEntities {
             BlockEntityType.Builder.of(LunarBlockEntity::new, ModBlocks.LUNAR_BLOCK.get()).build(null)
     );
 
-    public static final RegistryObject<BlockEntityType<LunarBlockEntity>> LUNAR_BLOCK_BRICK_ENTITY = BLOCK_ENTITIES.register("lunar_block_brick_entity", ()->
-            BlockEntityType.Builder.of(LunarBlockEntity::new, ModBlocks.LUNAR_BLOCK_BRICK.get()).build(null)
+    public static final RegistryObject<BlockEntityType<LunarBlockBrickEntity>> LUNAR_BLOCK_BRICK_ENTITY = BLOCK_ENTITIES.register("lunar_block_brick_entity", ()->
+            BlockEntityType.Builder.of(LunarBlockBrickEntity::new, ModBlocks.LUNAR_BLOCK_BRICK.get()).build(null)
     );
 
-    public static final RegistryObject<BlockEntityType<LunarBlockEntity>> LUNAR_BLOCK_CARVED_ENTITY = BLOCK_ENTITIES.register("lunar_block_carved_entity", ()->
-            BlockEntityType.Builder.of(LunarBlockEntity::new, ModBlocks.LUNAR_BLOCK_CARVED.get()).build(null)
+    public static final RegistryObject<BlockEntityType<LunarBlockCarvedEntity>> LUNAR_BLOCK_CARVED_ENTITY = BLOCK_ENTITIES.register("lunar_block_carved_entity", ()->
+            BlockEntityType.Builder.of(LunarBlockCarvedEntity::new, ModBlocks.LUNAR_BLOCK_CARVED.get()).build(null)
     );
 
-    public static final RegistryObject<BlockEntityType<LunarBlockEntity>> LUNAR_BLOCK_COBBLE_ENTITY = BLOCK_ENTITIES.register("lunar_block_cobble_entity", ()->
-            BlockEntityType.Builder.of(LunarBlockEntity::new, ModBlocks.LUNAR_BLOCK_COBBLE.get()).build(null)
+    public static final RegistryObject<BlockEntityType<LunarBlockCobbleEntity>> LUNAR_BLOCK_COBBLE_ENTITY = BLOCK_ENTITIES.register("lunar_block_cobble_entity", ()->
+            BlockEntityType.Builder.of(LunarBlockCobbleEntity::new, ModBlocks.LUNAR_BLOCK_COBBLE.get()).build(null)
     );
 
-    public static final RegistryObject<BlockEntityType<LunarBlockEntity>> LUNAR_BLOCK_CRACKED_ENTITY = BLOCK_ENTITIES.register("lunar_block_cracked_entity", ()->
-            BlockEntityType.Builder.of(LunarBlockEntity::new, ModBlocks.LUNAR_BLOCK_CRACKED.get()).build(null)
+    public static final RegistryObject<BlockEntityType<LunarBlockCrackedEntity>> LUNAR_BLOCK_CRACKED_ENTITY = BLOCK_ENTITIES.register("lunar_block_cracked_entity", ()->
+            BlockEntityType.Builder.of(LunarBlockCrackedEntity::new, ModBlocks.LUNAR_BLOCK_CRACKED.get()).build(null)
     );
 
     public static void register(IEventBus bus){

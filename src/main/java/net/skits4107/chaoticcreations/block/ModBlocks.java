@@ -10,7 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.skits4107.chaoticcreations.ChaoticCreations;
-import net.skits4107.chaoticcreations.block.custom.LunarBlock;
+import net.skits4107.chaoticcreations.block.custom.*;
 import net.skits4107.chaoticcreations.item.ModItems;
 
 import java.util.function.Supplier;
@@ -21,13 +21,13 @@ public class ModBlocks {
     /* new blocks here*/
     public static RegistryObject<Block> LUNAR_BLOCK = registerBlock("lunar_block", ()-> new LunarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
-    public static RegistryObject<Block> LUNAR_BLOCK_BRICK = registerBlock("lunar_block_brick", ()-> new LunarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static RegistryObject<Block> LUNAR_BLOCK_BRICK = registerBlock("lunar_block_brick", ()-> new LunarBlockBrick(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
-    public static RegistryObject<Block> LUNAR_BLOCK_CARVED = registerBlock("lunar_block_carved", ()-> new LunarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static RegistryObject<Block> LUNAR_BLOCK_CARVED = registerBlock("lunar_block_carved", ()-> new LunarBlockCarved(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
-    public static RegistryObject<Block> LUNAR_BLOCK_COBBLE = registerBlock("lunar_block_cobble", ()-> new LunarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static RegistryObject<Block> LUNAR_BLOCK_COBBLE = registerBlock("lunar_block_cobble", ()-> new LunarBlockCobble(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
-    public static RegistryObject<Block> LUNAR_BLOCK_CRACKED = registerBlock("lunar_block_cracked", ()-> new LunarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static RegistryObject<Block> LUNAR_BLOCK_CRACKED = registerBlock("lunar_block_cracked", ()-> new LunarBlockCracked(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
