@@ -31,6 +31,10 @@ public class ModBlockEntities {
             BlockEntityType.Builder.of(LunarBlockCrackedEntity::new, ModBlocks.LUNAR_BLOCK_CRACKED.get()).build(null)
     );
 
+    public static final RegistryObject<BlockEntityType<LunarBlockStairEntity>> LUNAR_STAIR_BLOCK_ENTITY = BLOCK_ENTITIES.register("lunar_stair_block_entity", ()->
+            BlockEntityType.Builder.of(LunarBlockStairEntity::new, ModBlocks.LUNAR_STAIR_BLOCK.get()).build(null)
+    );
+
     public static void register(IEventBus bus){
         BLOCK_ENTITIES.register(bus);
     }

@@ -29,6 +29,7 @@ public class ModBlocks {
 
     public static RegistryObject<Block> LUNAR_BLOCK_CRACKED = registerBlock("lunar_block_cracked", ()-> new LunarBlockCracked(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
+    public static RegistryObject<Block> LUNAR_STAIR_BLOCK = registerBlock("lunar_stair_block", ()-> new LunarBlockStair(()->LUNAR_BLOCK.get().defaultBlockState(),BlockBehaviour.Properties.copy(Blocks.STONE)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
