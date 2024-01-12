@@ -36,6 +36,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.LUNAR_BLOCK_CARVED.get());
                         pOutput.accept(ModBlocks.LUNAR_BLOCK_COBBLE.get());
                         pOutput.accept(ModBlocks.LUNAR_BLOCK_CRACKED.get());
+                        pOutput.accept(ModBlocks.LUNAR_STAIR_BLOCK.get());
 
                     })
                     .build());

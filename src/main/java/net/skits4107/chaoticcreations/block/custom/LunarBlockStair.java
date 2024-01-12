@@ -321,7 +321,7 @@ public class LunarBlockStair extends BaseEntityBlock implements SimpleWaterlogge
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING, HALF, SHAPE, WATERLOGGED);
+        pBuilder.add(FACING, HALF, SHAPE, WATERLOGGED, DAYTIME);
     }
 
     public FluidState getFluidState(BlockState pState) {
