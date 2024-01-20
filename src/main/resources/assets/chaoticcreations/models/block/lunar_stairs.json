@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "chaoticcreations:block/lunar_block",
+    "side": "chaoticcreations:block/lunar_block",
+    "top": "chaoticcreations:block/lunar_block"
+  }
+}
