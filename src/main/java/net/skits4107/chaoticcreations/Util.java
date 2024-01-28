@@ -26,9 +26,14 @@ public class Util {
         }
 
         //get random block
-        int index = random.nextInt(blocks.size());
-        Block block = blocks.get(index);
+        Block block = getRnandomBlock();
         //set block in world
         level.setBlock(pos, block.defaultBlockState(), 3);
+    }
+
+    public static Block getRnandomBlock(){
+        int index = random.nextInt(blocks.size());
+        return blocks.get(index);
+
     }
 }

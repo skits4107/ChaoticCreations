@@ -18,6 +18,7 @@ import net.skits4107.chaoticcreations.block.ModBlocks;
 import net.skits4107.chaoticcreations.block.entity.ModBlockEntities;
 import net.skits4107.chaoticcreations.entity.ModEntities;
 import net.skits4107.chaoticcreations.entity.client.CustomFallingBlockEntityRenderer;
+import net.skits4107.chaoticcreations.entity.client.CustomizableGolemRenderer;
 import net.skits4107.chaoticcreations.entity.client.HeavyItemEntityRenderer;
 import net.skits4107.chaoticcreations.item.ModCreativeModeTabs;
 import net.skits4107.chaoticcreations.item.ModItems;
@@ -69,6 +70,7 @@ public class ChaoticCreations {
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntities.HEAVY_ITEM_ENTITY.get(), HeavyItemEntityRenderer::new);
             EntityRenderers.register(ModEntities.FALLING.get(), CustomFallingBlockEntityRenderer::new);
+            EntityRenderers.register(ModEntities.CUSTOM_GOLEM.get(), CustomizableGolemRenderer::new);
         }
     }
 }
