@@ -50,6 +50,9 @@ public class CustomtizableGolem extends Entity {
 
         BlockState upperState = NbtUtils.readBlockState(null, tag.getCompound("uppper"));
         BlockState lowerState = NbtUtils.readBlockState(null, tag.getCompound("lower"));
+
+        this.setLowerBlock(lowerState);
+        this.setUpperBlock(upperState);
     }
 
     @Override
